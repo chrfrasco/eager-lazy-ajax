@@ -2,12 +2,12 @@ import Rx from 'rx-dom'
 
 const url = 'http://localhost:9000/time'
 
-const $post = Rx.DOM.getJSON(url)
-const postPromise = fetch(url)
+const $time = Rx.DOM.getJSON(url)
+const timePromise = fetch(url)
 
 setTimeout(() => {
-  $post.subscribe(makePrintTime('observable'))
-  postPromise.then(r => r.json()).then(makePrintTime('fetch'))
+  $time.subscribe(makePrintTime('observable'))
+  timePromise.then(r => r.json()).then(makePrintTime('fetch'))
 }, 3000)
 
 function makePrintTime(name) {
